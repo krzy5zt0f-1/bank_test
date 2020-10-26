@@ -6,17 +6,17 @@ class Flow
   def deposit(money_in)
     @balance += money_in
     @history << { date: Time.new.strftime("%d/%m/%Y"),
-                  action: "credit", amount: '%.2f' % money_in, balance: @balance }
+                  credit: '%.2f' % money_in, balance: balance }
   end
 
   def withdraw(money_out)
     @balance -= money_out
     @history << { date: Time.new.strftime("%d/%m/%Y"),
-                  action: "debit", amount: '%.2f' % money_out, balance: @balance }
+                  debit: '%.2f' % money_out, balance: balance }
   end
 
   def balance
-    @balance
+    '%.2f' % @balance
   end
 
   def history
